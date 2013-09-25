@@ -1,0 +1,75 @@
+Sun7i M-USB registers
+=====================
+Tommie Gannert
+
+Terminology
+-----------
+Each register is marked with the offset from the base, whether it is read or write and if it is part of the standard MUSB driver.
+
+
+Base addresses
+--------------
+USBC0 is at 0x01C13_0000.
+
+
+POWER/PCTL (0x0040)
+-------------------
+Read/Write, MUSB
+
+Allwinner calls it `PCTL`, while MUSB says `POWER`.
+
+[options="header"]
+|======================================
+|Bits |R/W|Name            |Description
+|   7 |RW |ISO_UPDATE_EN   |Only device, ???
+|   6 |RW |SOFT_CONNECT    |Only device, 1 to connect to bus, 0 to be disconnected. This likely directly disconnects the DATA pull-ups.
+|   5 |RW |HIGH_SPEED_EN   |Enable HS transfers. Probably by allowing the K chirp on reset, and looking at the hub response.
+|   4 |R  |HIGH_SPEED_FLAG |1 if HS is supported by the hub. This is probably established during the RESET phase. If not, the device is at FS.
+|   3 |RW |RESET           |1 to keep USBC in RESET mode.
+|   2 |RW |RESUME          |1 to wake USBC from SUSPEND. Likely auto-resets to 0.
+|   1 |RW |SUSPEND         |1 to put the device into SUSPEND.
+|   0 |RW |SUSPEND_EN      |Enable suspend logic ???
+|======================================
+
+
+INTTx (0x0044)
+--------------
+Read, MUSB
+
+Each endpoint has one bit indicating whether transmission of a new packet is possible. The register is reset upon read (see `musb_generic_disable()`.)
+
+
+INTRx (0x0046)
+--------------
+Read, MUSB
+
+Each endpoint has one bit indicating whether new data is available for reading. The register is reset on read (see `musb_generic_disable()`.) EP0 uses CSR0 instead and bit 0 is not defined.
+
+
+INTTxE (0x0048)
+--------------
+Read/Write, MUSB
+
+Each endpoint has one bit indicating whether interrupts for INTTx should be enabled or not.
+
+
+INTRxE (0x004A)
+--------------
+Read/Write, MUSB
+
+Each endpoint has one bit indicating whether interrupts for INTTx should be enabled or not. EP0 uses ??? instead and bit 0 is not defined.
+
+
+INTUSB (0x004C)
+---------------
+
+Write a 1 to clear a bit.
+
+
+FADDR (0x0098)
+--------------
+Read/Write, MUSB
+
+For host mode: The address to receive from, or transmit to.
+
+For device mode: The address of the device, or 0 if not yet set.
