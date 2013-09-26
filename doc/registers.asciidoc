@@ -43,7 +43,7 @@ INTRx (0x0046)
 --------------
 Read, MUSB
 
-Each endpoint has one bit indicating whether new data is available for reading. The register is reset on read (see `musb_generic_disable()`.) EP0 uses CSR0 instead and bit 0 is not defined.
+Each endpoint has one bit indicating whether new data is available for reading. The register is reset on read (see `musb_generic_disable()`.) The EP0 receive interrupt is combined with transmit in INTTx and bit 0 is not defined.
 
 
 INTTxE (0x0048)
@@ -57,7 +57,7 @@ INTRxE (0x004A)
 --------------
 Read/Write, MUSB
 
-Each endpoint has one bit indicating whether interrupts for INTTx should be enabled or not. EP0 uses ??? instead and bit 0 is not defined.
+Each endpoint has one bit indicating whether interrupts for INTTx should be enabled or not. EP0 uses only INTTxE and bit 0 is not defined.
 
 
 INTUSB (0x004C)
