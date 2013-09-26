@@ -1,0 +1,8 @@
+Sun7i M-USB References
+======================
+Tommie Gannert
+
+* link:http://wenku.baidu.com/view/1a1e5cc6aa00b52acfc7cad6.html[MUSBMHDRC Product Specification and Programming Guide] contains information about the standard M-USB mechanics.
+* link:http://s3.mentor.com/public_documents/datasheet/products/ip/usb/usb20otg/MUSBMHDRC__Datasheet.pdf[MUSBMHDRC Datasheet] contains a block schema, signal descriptions and information about capabilities.
+* link:http://www.ti.com/lit/ug/sprufy9/sprufy9.pdf[TMS320DM335 Reference Guide] implements MUSBMHDRC and contains details about standard registers.
+
