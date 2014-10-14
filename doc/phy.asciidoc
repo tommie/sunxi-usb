@@ -1,0 +1,55 @@
+Sun7i PHY interface
+===================
+Tommie Gannert
+
+
+Serially bit-banged interface with two PHYs.
+
+USBC_PHY_PLL_BW (0x03)
+----------------------
+Two bits. 0--3, default 2.
+
+
+USBC_PHY_RES45_CAL_EN (0x0C)
+----------------------------
+Enable 45 ohm termination resistance on data lines?
+
+0 disabled, 1 enabled. Default disabled.
+
+
+USBC_PHY_TX_AMPLITUDE_TUNE (0x20)
+---------------------------------
+Two bits. 0--3, default 0.
+
+
+USBC_PHY_TX_SLEWRATE_TUNE (0x22)
+--------------------------------
+Three bits. 0--7, default 5.
+
+
+USBC_PHY_VBUSVALID_TH_SEL (0x25)
+--------------------------------
+Two bits. 0--3, default 2.
+
+
+USBC_PHY_PULLUP_RES_SEL (0x27)
+------------------------------
+
+
+USBC_PHY_OTG_FUNC_EN (0x28)
+---------------------------
+OTG function.
+
+0 disabled, 1 enabled. Default enabled.
+
+
+USBC_PHY_VBUS_DET_EN (0x29)
+---------------------------
+VBUS detection.
+
+0 disabled, 1 enabled. Default enabled.
+
+
+USBC_PHY_DISCON_TH_SEL (0x2A)
+-----------------------------
+Two bits. 0--3, default 1.
